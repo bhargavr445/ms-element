@@ -1,0 +1,12 @@
+<div class="container">
+    <nav class="sidebar">
+        <ul class="nav-menu">
+            <li><a (click)="navigateTo('prr')">PRR</a></li>
+            <li><a (click)="navigateTo('mmp')">MMP</a></li>
+            <li><a (click)="navigateTo('opl')">OPL</a></li>
+        </ul>
+    </nav>
+    <main class="content">
+       <router-outlet />
+    </main>
+</div>

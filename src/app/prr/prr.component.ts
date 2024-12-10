@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { PrrService } from './prr.service';
+import { PrrI } from './Prr-interface';
 
 @Component({
   selector: 'app-prr',
@@ -10,10 +11,18 @@ export class PrrComponent {
 
   compName = 'Prr Comp';
   prrService = inject(PrrService);
+  resp: PrrI;
 
   fetchData() {
-    console.log('Fetch data...');
-    
+    this.prrService.fetchUnivData().subscribe({
+      next: (data: PrrI) => {
+        this.resp = data
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    }
+    )
   }
 
 }
